@@ -1,0 +1,29 @@
+.col{
+    height:90vh;
+    margin-right:2%;
+}
+li{
+    list-style:none;
+    font-size:18px;
+    font-weight: lighter;
+    line-height:150px;
+    color: white;
+
+}
+button{
+    width:45%;
+    margin:2%;
+}
+.content{
+    height:75vh;
+    width:95%;
+    margin:0 auto;
+}
+h4{
+    margin-top:20%;
+    color: white;
+    font-weight: 300;
+}
+.container{
+    margin-top: 2%;
+}
