@@ -1,40 +1,35 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function TableFormData(){
-    return(
-        <div>
-            <table class="table table-striped table-dark">
+const  TableFormData = ({pointData, lineData, polygonData})=>{
+      return (
+        <div className="container">
+            <table className="table table-bordered">
                 <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">coordinates</th>
+                </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                <tbody>{
+                        pointData.map( item => (
+                            <tr key={item.id}>
+                                <td>{item.id}</td>
+                                <td>{item.name}</td>
+                                <td>{item.point.coordinates}</td>
+                                <td>{item.point.type}</td>
+                            </tr>
+                        ))
+                    }{/*
+                    create if else statements from  the state
+                    if data===point data
+                    if data ===polygon
+                    if data === line */}
                 </tbody>
             </table>
         </div>
-    )
+    );
 }
 export default TableFormData;
