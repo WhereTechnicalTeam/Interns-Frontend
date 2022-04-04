@@ -14,28 +14,20 @@ class App extends React.Component{
     lineData:[],
     polygonData:[]
   }
-  showLinesData = ()=>{
-    const polyline = [
-  [
-    [ -1.32, 36.8],
-    [ -1.25, 36.9]
-  ],
-  [
-    [-1.5, 37.9],
-    [-1.4, 36.8]
-  ]
-]
-    this.setState({lineData:polyline})
+  showLinesData = async ()=>{
+    const response = await fetch("http://collectdata2021.herokuapp.com/lineapi")
+    const lineData = await response.json();
+    this.setState({lineData:lineData.features})
+    console.log(lineData)
     }
   showPointsData = async () => {
-    const response = await fetch("http://localhost:9000/data/api/nairobihealthfacilities")
+    const response = await fetch("http://collectdata2021.herokuapp.com/pointapi")
     const pointData = await response.json();
-    this.setState({pointData:pointData})
-        
-  }
+    this.setState({pointData:pointData.features})    
+  } 
    
   showPolygonData = async()=>{
-        const response = await fetch("http://localhost:9000/data/api/nairobisubcounties")
+        const response = await fetch("http://collectdata2021.herokuapp.com/polygonapi")
         const polygondata = await response.json();
         this.setState({polygonData:polygondata})
     }
