@@ -1,6 +1,4 @@
-
 body{
-    color: white;
     background-position: center;
     background-repeat: no-repeat;
     background-size:cover;
@@ -9,30 +7,41 @@ body{
 }
 .list-group-item{
     margin-bottom: 60%;
+    margin-left: 10%;
     cursor:pointer;
 }
 .list-group-item:hover{
-    color:red;
+    color:orangered;
 }
 .list-group-item:active{
-    color:red;
+    color:orangered;
     font-weight:bold;
 }
-.list-group{
-    height: 80vh;
-    margin-top: 5%;
-}
 .buttons{
-    margin-top: 2%;
-    margin-bottom: 2%;
     display: flex;
+    position: absolute;
+    background: orangered;
+    z-index: 999;
+    right: 10px;
+    top: 15px;
+    opacity: 70%;
+    width: auto;
+    border-radius: 5%;    
 
+}
+.buttons2{
+    display: flex;
+    position: absolute;
+    background: orangered;
+    z-index: 999;
+    right: 135px;
+    top: 15px;
+    opacity: 70%;
+    width: auto;
+    border-radius: 5%;    
 }
 .btn{
-    width: 100%;
-    margin: 2%;
-    margin-bottom: 0%;
-
+    color: orange;
 }
 th{
     font-weight: 500;
@@ -41,3 +50,42 @@ th{
     height: auto;
     width: auto;
 }
+.toggle, .toggle2{
+    color: orangered;
+    position: absolute;
+    z-index: 999;
+    left: 0px;
+    bottom: 0px;
+    box-shadow: 0 0 5px 0 rgba(184, 140, 140, 0.3);
+    font-size:12px;
+    letter-spacing:2px;
+    background: white;
+    opacity: 70%;
+    width: auto;
+  }
+  .toggle2 {
+    color: orangered;
+    position: absolute;
+    z-index: 999;
+    left: 118px;
+    bottom: 0px;
+    letter-spacing:2px;
+    background: white;
+    opacity: 70%;
+    width: auto;
+  }
+  .switch{
+      list-style: none;
+      font-size: 10px;
+      font-weight: 500;  
+  }
+  td{
+      font-size: 12px;
+  }
+  th{
+      font-size: 14px;
+      font-weight: 500;
+  }
+  .table{
+      margin-top: 5%;
+  }
