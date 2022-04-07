@@ -96,7 +96,7 @@ class TableFormData extends React.Component{
                     </thead>
                 </table>
             </div>}
-            </div>
+           </div>
         );
         
     }
