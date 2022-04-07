@@ -6,19 +6,18 @@ import Map from './components/Map';
 import TableFormData from './components/TableFormData'
 
 
-
-
 class App extends React.Component{
   state ={
     pointData:[],
     lineData:[],
-    polygonData:[]
+    polygonData:[],
+    buttonId:null
   }
+
   showLinesData = async ()=>{
     const response = await fetch("http://collectdata2021.herokuapp.com/lineapi")
     const lineData = await response.json();
     this.setState({lineData:lineData.features})
-    console.log(lineData)
     }
   showPointsData = async () => {
     const response = await fetch("http://collectdata2021.herokuapp.com/pointapi")
@@ -31,11 +30,17 @@ class App extends React.Component{
         const polygondata = await response.json();
         this.setState({polygonData:polygondata})
     }
+
+    setButton(id) {
+      this.setState({ buttonId: id });
+  }
   render(){
     const linkstyle ={
     color:'white',
     textDecoration:'none',
-    fontWeight:'bold'
+    fontWeight:'bold',
+    letterSpacing:2,
+    fontSize:20
 
   }
     return(
@@ -44,9 +49,9 @@ class App extends React.Component{
           <div className="col-2">
                <ul className='list-group list-group-flush'>
                   <li className='list-group-item text-muted mt-5'><h5>Data types</h5></li>
-                  <li className='list-group-item' onClick={this.showPointsData}>points</li>
-                  <li className='list-group-item' onClick={this.showLinesData} >Lines</li>
-                  <li className='list-group-item' onClick={this.showPolygonData}>Polygon</li> 
+                  <li className='list-group-item' onClick={() => { this.setButton(0); this.showPointsData()}}>points</li>
+                  <li className='list-group-item' onClick={() => { this.setButton(1); this.showLinesData()}}>Lines</li>
+                  <li className='list-group-item' onClick={() => { this.setButton(2); this.showPolygonData()}}>Polygons</li>
                </ul>
           </div>
           <div className="col-10">
@@ -57,9 +62,9 @@ class App extends React.Component{
                     <button type="button" className='btn btn-secondary btn-lg'><Link to="/table" style={linkstyle}>display table</Link></button>
                  </div>
                 <Routes>
-                  <Route exact path='/' element={< Map pointData={this.state.pointData} lineData={this.state.lineData} polygonData={this.state.polygonData}/>}>
+                  <Route exact path='/' element={< Map pointData={this.state.pointData} lineData={this.state.lineData} polygonData={this.state.polygonData} buttonId={this.state.buttonId}/>}>
                   </Route>
-                  <Route exact path='/table' element={< TableFormData pointData={this.state.pointData} lineData={this.state.lineData} polygonData={this.state.polygonData}/>}></Route>
+                  <Route exact path='/table' element={< TableFormData pointData={this.state.pointData} lineData={this.state.lineData} polygonData={this.state.polygonData} buttonId={this.state.buttonId}/>}></Route>
                 </Routes>
               </div>
            </Router>
@@ -71,4 +76,7 @@ class App extends React.Component{
 
 }
 export default App;
+
+
+
 
