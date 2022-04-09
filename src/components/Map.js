@@ -40,12 +40,15 @@ class Map extends React.Component{
         width:"100px",
         marginTop:"5%"
     }
+    const tiles ={
+        color:'orange'
+    }
     const limeOptions = { color: 'orange', weight:2, }
-    const position = [0,0]
+    const position = [-3.919907, 29.751335]
         return(
-            <div>
-                {this.state.background ===1 &&   <MapContainer center={position} zoom={2} scrollWheelZoom={true}  style={style}>
-                    <TileLayer
+            <div className='map'>
+                {this.state.background ===1 &&   <MapContainer center={position} scrollWheelZoom={true}  zoom={3} style={style}>
+                    <TileLayer style ={tiles}
                         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
                         url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
                     />
@@ -80,8 +83,8 @@ class Map extends React.Component{
                     <li className='switch' onClick={()=>{this.setBackground(2)}}>USGS_USImageryTopo</li>
                 </div>
                 </MapContainer> }
-                {this.state.background ===2 &&   <MapContainer center={position} zoom={2} scrollWheelZoom={true}  style={style}>
-                    <TileLayer
+                {this.state.background ===2 &&   <MapContainer center={position} zoom={3} scrollWheelZoom={true}  style={style}>
+                    <TileLayer style ={tiles}
                         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
                         url='https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryTopo/MapServer/tile/{z}/{y}/{x}'
                     />
@@ -116,7 +119,7 @@ class Map extends React.Component{
                     <li className='switch' onClick={()=>{this.setBackground(2)}}>USGS_USImageryTopo</li>
                 </div>
                 </MapContainer> }
-                {this.state.background !==2 &&  this.state.background !==1 &&  <MapContainer center={position} zoom={2} scrollWheelZoom={true}  style={style}>
+                {this.state.background !==2 &&  this.state.background !==1 &&  <MapContainer center={position} zoom={3} scrollWheelZoom={true}  style={style}>
                     <TileLayer
                         attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
                         url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'

@@ -37,14 +37,15 @@ class App extends React.Component{
   render(){
     const linkstyle ={
     color:'white',
+    background:'orangered',
     textDecoration:'none',
-    fontWeight:'bold',
-    letterSpacing:2,
-    fontSize:20
+    fontWeight:'400',
+    letterSpacing:1,
+    fontSize:16,
 
   }
     return(
-      <div className='container'>
+      <div className=''>
         <div className="row">
           <div className="col-2">
                <ul className='list-group list-group-flush'>
@@ -57,9 +58,11 @@ class App extends React.Component{
           <div className="col-10">
             <Router>
               <div className="App">
-                <div className='buttons'>
-                    <button type="button" className='btn btn-secondary btn-lg'><Link to="/" style={linkstyle}>display map</Link></button>
-                    <button type="button" className='btn btn-secondary btn-lg'><Link to="/table" style={linkstyle}>display table</Link></button>
+                <div className='buttons2'>
+                    <button type="button" className='btn  btn-sm'><Link to="/" style={linkstyle}>display map</Link></button>
+                 </div>
+                 <div className='buttons'>
+                    <button type="button" className='btn  btn-sm'><Link to="/table" style={linkstyle}>display table</Link></button>
                  </div>
                 <Routes>
                   <Route exact path='/' element={< Map pointData={this.state.pointData} lineData={this.state.lineData} polygonData={this.state.polygonData} buttonId={this.state.buttonId}/>}>
