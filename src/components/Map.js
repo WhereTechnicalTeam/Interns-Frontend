@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { MapContainer, TileLayer, Marker,Popup, Polyline, GeoJSON} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-//import marker from '../assets/images/star-solid.svg';
+import marker from '../assets/images/star-xxl.png';
 
 
 class Map extends React.Component{
@@ -21,10 +21,10 @@ class Map extends React.Component{
         }
         const star = 'https://th.bing.com/th/id/R.f3de8ea5dccde14634b2ef54b72551bf?rik=wah7i3e7uYA65g&pid=ImgRaw&r=0'
         const myIcon = new L.Icon({
-        iconUrl: star,
-        iconRetinaUrl: star,
+        iconUrl: marker,
+        iconRetinaUrl: marker,
         popupAnchor: [-0, -0],
-        iconSize:[10,10],
+        iconSize:[14,14],
         background: 'orangered',
     });
       const styles= {
@@ -134,7 +134,10 @@ class Map extends React.Component{
                                     <div className="popupdiv">
                                     <div>Name: {place.properties.name}</div>
                                     <div>{place.properties.desc}</div>
-                                    <div><img src={place.properties.picture1} style={img} alt={place.properties.name}/></div>
+                                    <div>
+                                        {place.properties.picture1 === null? (<img src="../public/images/building.jpg" style={img} alt={place.properties.name}/>):
+                                        (<img src={place.properties.picture1} style={img} alt={place.properties.name}/>)}
+                                    </div>
                                     <div><img src={place.properties.picture2} style={img} alt={place.properties.name}/></div>  
                                     </div>
                                 </Popup>
