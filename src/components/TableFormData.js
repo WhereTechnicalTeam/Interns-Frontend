@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class TableFormData extends React.Component{
+   
     render(){
         return(
             <div>

@@ -1,9 +1,9 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { MapContainer, TileLayer, Marker,Popup, Polyline, GeoJSON} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import marker from '../assets/images/star-xxl.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
+//import marker from '../assets/images/star-solid.svg';
 
 
 class Map extends React.Component{
@@ -15,25 +15,22 @@ class Map extends React.Component{
     }
     render(){
         const style = {
-            height: '98vh',
+            height: '100vh',
             width: '100%',
-            backgroundSize:'cover',
         }
         const star = 'https://th.bing.com/th/id/R.f3de8ea5dccde14634b2ef54b72551bf?rik=wah7i3e7uYA65g&pid=ImgRaw&r=0'
         const myIcon = new L.Icon({
-        iconUrl: marker,
-        iconRetinaUrl: marker,
+        iconUrl: star,
+        iconRetinaUrl: star,
         popupAnchor: [-0, -0],
-        iconSize:[14,14],
+        iconSize:[10,10],
         background: 'orangered',
     });
       const styles= {
         fillColor:'orangered',
         weight: 0.5,
-        opacity: 1,
         color:'orangered',
         dashArray: 1,
-        fillOpacity: 0.7
     }
     const img ={
         height:'100%',
@@ -44,7 +41,6 @@ class Map extends React.Component{
         color:'orangered'
     }
     const limeOptions = { color: 'orangered', weight:2, }
-    //const position = [-1.919907, 29.751335]
     const position = [10.919907, 29.751335]
         return(
             <div className='map'>
@@ -134,10 +130,7 @@ class Map extends React.Component{
                                     <div className="popupdiv">
                                     <div>Name: {place.properties.name}</div>
                                     <div>{place.properties.desc}</div>
-                                    <div>
-                                        {place.properties.picture1 === null? (<img src="../public/images/building.jpg" style={img} alt={place.properties.name}/>):
-                                        (<img src={place.properties.picture1} style={img} alt={place.properties.name}/>)}
-                                    </div>
+                                    <div><img src={place.properties.picture1} style={img} alt={place.properties.name}/></div>
                                     <div><img src={place.properties.picture2} style={img} alt={place.properties.name}/></div>  
                                     </div>
                                 </Popup>
