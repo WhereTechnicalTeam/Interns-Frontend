@@ -1,0 +1,141 @@
+.buttons{
+    position:absolute;
+    background: orangered;
+    z-index:999;
+    right: 10px;
+    top: 15px;
+    width: auto;
+    border-radius: 5%;    
+
+}
+.buttons2{
+    position: absolute;
+    background: orangered;
+    z-index: 999;
+    right: 220px;
+    top: 15px;
+    width: auto;
+    border-radius: 5%;    
+}
+.toggle{
+    color: orangered;
+    position: absolute;
+    z-index: 999;
+    left: 0px;
+    bottom: 0px;
+    font-size:12px;
+    letter-spacing:2px;
+    background: white;
+    width: auto;
+  }
+  .toggle2 {
+    color: orangered;
+    position: absolute;
+    z-index: 999;
+    left: 118px;
+    bottom: 0px;
+    letter-spacing:2px;
+    background: white;
+    width: auto;
+  }
+body{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    width:100%;
+    background-attachment: fixed;
+    overflow-y: hidden;
+    overflow-x: hidden; 
+}/*
+.list-group-item{
+    margin-bottom: 50%;
+    margin-left: 10%;
+    cursor:pointer;
+}*/
+.list-group-item:hover{
+    color:orangered;
+}
+.list-group-item:active{
+    color:orangered;
+    font-weight:bold;
+}
+
+.btn{
+    color: orangered;
+    width: 180px;
+}
+th{
+    font-weight: 500;
+}
+.popupdiv{
+    height: auto;
+    width: auto;
+}
+
+  .switch{
+      list-style: none;
+      font-size: 10px;
+      font-weight: bold;  
+      color: orangered;
+  }
+  td{
+      font-size: 12px;
+  }
+  th{
+      font-size: 14px;
+      font-weight: 500;
+  }
+  .table{
+      margin-top: 5%;
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .buttons2{
+        right: 200px;  
+    }
+    .toggle,.toggle2{
+        margin-bottom: 69%;
+        /*transform: rotate(90deg);
+        right:1000px;*/
+        bottom: 0px;
+       
+
+    }
+   
+  }
+  @media only screen and (min-width: 575px) {
+    .buttons2{ 
+        top: 0px;
+    }
+    .buttons{
+        top:0px;
+    }
+    .table{
+        margin-top: 10%;
+    }
+    .list-group-item{
+        margin-bottom: 50%;
+        margin-left: 10%;
+        cursor:pointer;
+    } 
+    
+  }
+  @media only screen and (min-width: 1000px) {
+    .table{
+        margin-top: 7%;
+    }
+    .buttons2{ 
+        top: 15px;
+    }
+    .buttons{
+        top:15px;
+    }
+    .list-group-item{
+        margin-bottom: 50%;
+        margin-left: 10%;
+        cursor:pointer;
+    }
+  
+   
+    
+  }
