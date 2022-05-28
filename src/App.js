@@ -1,12 +1,10 @@
 import React from 'react';
-import './app.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes,Link} from "react-router-dom";
 import Map from './components/Map';
-import TableFormData from './components/TableFormData'
+import TableFormData from './components/TableFormData';
 import {faDrawPolygon, faGripLines, faEllipsisH, faTable, faGlobeAfrica} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -57,9 +55,9 @@ class App extends React.Component{
     fontSize:25
   }
     return(
-      <div className=''>
+      <div className="">
         <div className="row">
-          <div className="col-2">
+          <div className="col-sm-2">
                <ul className='list-group list-group-flush'>
                   <li className='list-group-item text-muted mt-5'><h5>Data types</h5></li>
                   <li className='list-group-item' onClick={() => { this.setButton(0); this.showPointsData()}}><FontAwesomeIcon style={icons} icon={faEllipsisH} onClick={this.showPointsData}/>Points</li>
@@ -67,9 +65,9 @@ class App extends React.Component{
                   <li className='list-group-item' onClick={() => { this.setButton(2); this.showPolygonData()}}><FontAwesomeIcon style={icons} icon={faDrawPolygon} onClick={this.showPolygonData}/>Polygons</li>  
                </ul>
           </div>
-          <div className="col-10">
+          <div className='col-sm-10'>
             <Router>
-              <div className="App">
+              <div className="">
                 <div className='buttons2'>
                     <button type="button" className='btn  btn-sm'><Link to="/" style={linkstyle}> <FontAwesomeIcon style={iconTwo} icon={faGlobeAfrica}/>display map</Link></button>
                  </div>
@@ -77,21 +75,19 @@ class App extends React.Component{
                     <button type="button" className='btn  btn-sm'><Link to="/table" style={linkstyle}><FontAwesomeIcon style={iconTwo} icon={faTable}/>display table</Link></button>
                  </div>
                 <Routes>
-                  <Route exact path='/' element={< Map pointData={this.state.pointData} lineData={this.state.lineData} polygonData={this.state.polygonData} buttonId={this.state.buttonId}/>}>
-                  </Route>
-                  <Route exact path='/table' element={< TableFormData pointData={this.state.pointData} lineData={this.state.lineData} polygonData={this.state.polygonData} buttonId={this.state.buttonId}/>}></Route>
+                  <Route exact path='/table' element={< TableFormData pointData={this.state.pointData} lineData={this.state.lineData} polygonData={this.state.polygonData} buttonId={this.state.buttonId}/>}/>
+                  <Route exact path='/' element={< Map pointData={this.state.pointData} lineData={this.state.lineData} polygonData={this.state.polygonData} buttonId={this.state.buttonId}/>}/>
                 </Routes>
               </div>
            </Router>
           </div>
-        </div>
+          </div>
       </div>
     )
   }
 
 }
 export default App;
-
 
 
 
